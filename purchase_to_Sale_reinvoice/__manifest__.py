@@ -1,6 +1,6 @@
 {
 'name': 'Purchase to Sale Reinvoice',
-'version': '14.0.1.0.1',
+'version': '18.0.1.0.0',
 'summary': 'Mass-reinvoice vendor bills to one fixed customer',
 'author': 'Generated for user',
 'license': 'AGPL-3',
