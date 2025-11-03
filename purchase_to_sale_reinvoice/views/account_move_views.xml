@@ -1,4 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Inhoud voor de account move views komt hier later -->
+    <!-- Voeg het resell_move_id veld toe aan de aankoopfactuur formulierweergave -->
+    <record id="view_account_invoice_form_inherit_resell" model="ir.ui.view">
+        <field name="name">account.move.form.inherit.resell</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_reference']" position="after">
+                <field name="x_resell_move_id" groups="account.group_account_user"/>
+                <field name="x_is_reselled" invisible="1"/> <!-- Dit veld is onzichtbaar, maar handig voor logica -->
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Voeg het is_reselled veld toe aan de aankoopfactuur tree/lijstweergave -->
+    <record id="view_account_invoice_tree_inherit_resell" model="ir.ui.view">
+        <field name="name">account.move.tree.inherit.resell</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total_in_currency_signed']" position="after">
+                <field name="x_is_reselled" optional="hide"/> <!-- Optioneel te tonen/verbergen -->
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Voeg een filter toe voor "Is Doorgefactureerd" op aankoopfacturen -->
+    <record id="view_account_invoice_filter_inherit_resell" model="ir.ui.view">
+        <field name="name">account.move.select.inherit.resell</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_move_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='invoice_date']" position="after">
+                <separator/>
+                <filter string="Is Doorgefactureerd" name="reselled_invoices" domain="[('x_is_reselled', '=', True)]"/>
+                <filter string="Niet Doorgefactureerd" name="unreselled_invoices" domain="[('x_is_reselled', '=', False)]"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>
