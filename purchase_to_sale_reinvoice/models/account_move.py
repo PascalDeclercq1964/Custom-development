@@ -38,7 +38,7 @@ class AccountMove(models.Model):
         TAX_MAPPING = {
             # Voorbeeld: 
             # 'Tax 21% Purchase ID': 'Tax 21% Sale ID', 
-            '21% S' : '21%'
+            21: 304,
         }
 
         # 2. VALIDATIE
