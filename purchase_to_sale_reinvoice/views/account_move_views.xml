@@ -47,10 +47,10 @@
         <field name="binding_view_types">list</field>
         <field name="state">code</field>
         <field name="code">
-            # Haal de geselecteerde ID's op uit de context
-            active_ids = env.context.get('active_ids')
-            # Maak de wizard aan en open deze
-            action = model.env['purchase.resell.wizard'].create({'move_ids': [(6, 0, active_ids)]}).action_open_wizard()
+        # Haal de geselecteerde ID's op uit de context
+        active_ids = env.context.get('active_ids')
+        # Maak de wizard aan en open deze
+        action = model.env['purchase.resell.wizard'].create({'move_ids': [(6, 0, active_ids)]}).action_open_wizard()
         </field>
     </record> 
 </odoo>
