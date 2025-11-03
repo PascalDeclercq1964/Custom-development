@@ -12,8 +12,8 @@
                         <field name="move_ids" widget="many2many_tags" readonly="1"/>
                     </group>
 
-                    <notebook>
                         <!--
+                    <notebook>
 
                         <page string="Grootboekrekening Mappings">
                             <field name="account_map_ids">
@@ -31,8 +31,8 @@
                                 </tree>
                             </field>
                         </page>
-                        -->
                     </notebook>
+                        -->
                 </sheet>
                 <footer>
                     <button name="action_resell_invoices" type="object" string="Factureer Door" class="oe_highlight"/>
