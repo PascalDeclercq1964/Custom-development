@@ -31,7 +31,7 @@ class AccountMove(models.Model):
             # Voorbeeld: Zorg dat u de werkelijke ID's hier invult!
             600000: 700000, 
             610000: 710000, 
-            618000: 700000,
+            613800: 700000,
         }
 
         # Hardgecodeerde Mappings voor BTW Codes (Sleutel: Aankoop BTW ID, Waarde: Verkoop BTW ID)
