@@ -13,6 +13,22 @@
                     </group>
 
                     <notebook>
+                        <page string="Grootboekrekening Mappings">
+                            <field name="account_map_ids">
+                                <tree editable="bottom">
+                                    <field name="purchase_account_id"/>
+                                    <field name="sale_account_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="BTW Code Mappings">
+                            <field name="tax_map_ids">
+                                <tree editable="bottom">
+                                    <field name="purchase_tax_id"/>
+                                    <field name="sale_tax_id"/>
+                                </tree>
+                            </field>
+                        </page>
                     </notebook>
                 </sheet>
                 <footer>
