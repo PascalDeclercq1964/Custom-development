@@ -29,14 +29,16 @@ class AccountMove(models.Model):
         # Sleutel is de ID van de Aankooprekening, Waarde is de ID van de Verkooprekening
         ACCOUNT_MAPPING = {
             # Voorbeeld: Zorg dat u de werkelijke ID's hier invult!
-            # 600000: 700000, 
-            # 610000: 710000, 
+            600000: 700000, 
+            610000: 710000, 
+            618000: 700000,
         }
 
         # Hardgecodeerde Mappings voor BTW Codes (Sleutel: Aankoop BTW ID, Waarde: Verkoop BTW ID)
         TAX_MAPPING = {
             # Voorbeeld: 
             # 'Tax 21% Purchase ID': 'Tax 21% Sale ID', 
+            '21% S' : '21%'
         }
 
         # 2. VALIDATIE
