@@ -29,7 +29,7 @@ class AccountMove(models.Model):
         # Sleutel is de ID van de Aankooprekening, Waarde is de ID van de Verkooprekening
         ACCOUNT_MAPPING = {
             # Voorbeeld: Zorg dat u de werkelijke ID's hier invult!
-            600000: 700000, 
+            439: 318, 
             610000: 710000, 
             613800: 700000,
         }
