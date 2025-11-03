@@ -38,4 +38,17 @@
             </xpath>
         </field>
     </record>
+    
+    <!-- Server Actie om de wizard te openen -->
+    <record id="action_open_purchase_resell_wizard" model="ir.actions.server">
+        <field name="name">Factureer Door aan Klant</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_view_types">list</field> <!-- Zorgt ervoor dat het in de lijstweergave verschijnt -->
+        <field name="state">code</field>
+        <field name="code">
+            action = model.env['purchase.resell.wizard'].create({'move_ids': active_ids}).action_open_wizard()
+        </field>
+    </record>
+
 </odoo>
