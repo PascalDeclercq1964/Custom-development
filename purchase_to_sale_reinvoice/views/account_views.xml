@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="account.view_account_form"/>
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
-                <page string="Doorgefacturatie Rekening">
+                <page string="Doorfacturatie">
                     <group>
                         <field name="x_resell_sale_account_id"/>
                     </group>
@@ -19,8 +19,12 @@
         <field name="model">account.tax</field>
         <field name="inherit_id" ref="account.view_tax_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']" position="after"> 
+            <xpath expr="//notebook" position="inside">
+                <page string="Doorfacturatie">
+                    <group>
                 <field name="x_resell_sale_tax_id"/>
+                    </group>
+                </page>
             </xpath>
         </field>
     </record>
