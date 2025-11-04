@@ -4,7 +4,7 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[hasclass('app_settings_block')]" position="after">
+            <xpath expr="/form" position="inside">
                 <h2>Doorgefacturatie Instellingen</h2>
                 <div class="row mt16 o_settings_container" id="resell_settings">
                     <div class="col-12 col-lg-6 o_setting_box">
