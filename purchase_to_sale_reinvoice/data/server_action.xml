@@ -3,7 +3,7 @@
         <field name="name">Factureer Door (Gebruik Configuratie)</field>
         <field name="model_id" ref="account.model_account_move"/>
         <field name="binding_model_id" ref="account.model_account_move"/>
-        <field name="binding_view_types">list</field>
+        <field name="binding_view_types">list,form</field>
         <field name="state">code</field>
         <field name="code">
 # Roep de nieuwe Python-methode aan
