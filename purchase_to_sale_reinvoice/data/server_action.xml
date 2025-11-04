@@ -6,8 +6,8 @@
         <field name="binding_view_types">list</field>
         <field name="state">code</field>
         <field name="code">
-        # Roep de nieuwe Python-methode aan
-        action = records.action_resell_selected_invoices_with_config()
+# Roep de nieuwe Python-methode aan
+action = records.action_resell_selected_invoices_with_config()
         </field>
     </record>
 </odoo>
