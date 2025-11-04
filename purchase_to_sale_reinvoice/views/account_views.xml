@@ -1,34 +1,26 @@
 <odoo>
-    <record id="view_account_form_inherit_resell" model="ir.ui.view">
-        <field name="name">account.account.form.inherit.resell</field>
+    <record id="view_account_form_inherit_resell_account" model="ir.ui.view">
+        <field name="name">account.account.form.inherit.resell.account</field>
         <field name="model">account.account</field>
         <field name="inherit_id" ref="account.view_account_form"/>
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
-                <page string="Doorgefacturatie Mappings">
-                    <field name="resell_account_map_ids">
-                        <tree string="Verkoop Mappings" editable="bottom">
-                            <field name="sale_account_id"/> 
-                        </tree>
-                    </field>
+                <page string="Doorgefacturatie Rekening">
+                    <group>
+                        <field name="x_resell_sale_account_id"/>
+                    </group>
                 </page>
             </xpath>
         </field>
     </record>
-
-    <record id="view_account_tax_form_inherit_resell" model="ir.ui.view">
-        <field name="name">account.tax.form.inherit.resell</field>
+    
+    <record id="view_account_tax_form_inherit_resell_tax" model="ir.ui.view">
+        <field name="name">account.tax.form.inherit.resell.tax</field>
         <field name="model">account.tax</field>
         <field name="inherit_id" ref="account.view_tax_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='type_tax_use']" position="after"> 
-                <group string="Doorgefacturatie Mappings">
-                    <field name="resell_tax_map_ids">
-                        <tree string="Verkoop BTW Mappings" editable="bottom">
-                            <field name="sale_tax_id"/>
-                        </tree>
-                    </field>
-                </group>
+            <xpath expr="//field[@name='name']" position="after"> 
+                <field name="x_resell_sale_tax_id"/>
             </xpath>
         </field>
     </record>
