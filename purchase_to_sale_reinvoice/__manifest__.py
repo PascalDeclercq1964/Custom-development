@@ -15,7 +15,8 @@
     ],
     'data': [
         'data/server_action.xml',
-        'views/res_config_settings_views.xml'
+        'views/res_config_settings_views.xml',
+        'views/account_views.xml'
     ],
     'installable': True,
     'application': False,
