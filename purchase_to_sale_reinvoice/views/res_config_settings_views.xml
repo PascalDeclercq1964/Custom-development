@@ -1,0 +1,25 @@
+<odoo>
+    <record id="res_config_settings_view_form_inherit_resell" model="ir.ui.view">
+        <field name="name">res.config.settings.form.inherit.resell</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]/div[@data-settings_group='invoicing']" position="after">
+                <h2>Doorgefacturatie Instellingen</h2>
+                <div class="row mt16 o_settings_container" id="resell_settings">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="resell_partner_id"/>
+                            <div class="text-muted">
+                                De vaste klant waarnaar alle aankoopfacturen worden doorgefactureerd.
+                            </div>
+                            <div class="content-group">
+                                <field name="resell_partner_id"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -17,6 +17,7 @@
         'security/ir.model.access.csv', # Wordt later toegevoegd voor rechten
         'wizards/purchase_resell_wizard_views.xml', # Wordt later toegevoegd
         'views/account_move_views.xml', # Wordt later toegevoegd
+        'views/res_config_settings_views.xml'
     ],
     'installable': True,
     'application': False,
