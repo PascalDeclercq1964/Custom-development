@@ -1,12 +1,13 @@
 <odoo>
-    <record id="action_resell_purchase_invoices_hardcoded" model="ir.actions.server">
-        <field name="name">Factureer Door (Hardgecodeerd)</field>
+    <record id="action_resell_purchase_invoices_configured" model="ir.actions.server">
+        <field name="name">Factureer Door (Gebruik Configuratie)</field>
         <field name="model_id" ref="account.model_account_move"/>
         <field name="binding_model_id" ref="account.model_account_move"/>
         <field name="binding_view_types">list</field>
         <field name="state">code</field>
         <field name="code">
-            action = records.action_resell_selected_invoices_hardcoded()
+            # Roep de nieuwe Python-methode aan
+            action = records.action_resell_selected_invoices_with_config()
         </field>
     </record>
 </odoo>
