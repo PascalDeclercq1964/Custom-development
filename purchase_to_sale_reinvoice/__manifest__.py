@@ -1,6 +1,6 @@
 {
     'name': 'Purchase Invoice Resell',
-    'version': '1.0',
+    'version': '1.0.1',
     'summary': 'Module to resell purchase invoices to a fixed customer.',
     'description': """
         This module adds functionality to resell selected purchase invoices
