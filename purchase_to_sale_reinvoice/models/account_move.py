@@ -8,7 +8,7 @@ class AccountMove(models.Model):
     # Veld om de link naar de aangemaakte verkoopfactuur vast te leggen (uit eerdere stappen)
     x_doorfactureer_move_id = fields.Many2one(
         'account.move', 
-        string='Doorgefactureerd aan Verkoopfactuur', 
+        string='Doorgefactureerd naar', 
         readonly=True, 
         copy=False,
         help="Verwijzing naar de verkoopfactuur die is aangemaakt voor deze aankoopfactuur."
@@ -30,7 +30,7 @@ class AccountMove(models.Model):
             'purchase_to_sale_reinvoice.resell_partner_id'
         )
         if not config_partner_id:
-            raise UserError("De 'Vaste Doorgefactureerde Klant' is niet ingesteld in de Instellingen. Gelieve deze in te vullen.")
+            raise UserError("De klant voor doorfacturatie is niet ingesteld in de Instellingen. Gelieve deze in te vullen.")
             
         try:
             klant = self.env['res.partner'].browse(int(config_partner_id))

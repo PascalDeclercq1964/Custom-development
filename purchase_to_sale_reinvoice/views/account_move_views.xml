@@ -41,7 +41,7 @@
     
     <!-- Server Actie om de wizard te openen -->
     <record id="action_open_purchase_resell_wizard" model="ir.actions.server">
-        <field name="name">Factureer Door aan Klant</field>
+        <field name="name">Doorfactureren</field>
         <field name="model_id" ref="account.model_account_move"/>
         <field name="binding_model_id" ref="account.model_account_move"/>
         <field name="binding_view_types">list</field>

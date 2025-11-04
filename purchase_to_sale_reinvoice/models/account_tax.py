@@ -6,7 +6,7 @@ class AccountTax(models.Model):
     # Veld om de Verkoop BTW Code voor doorfacturatie direct vast te leggen
     x_resell_sale_tax_id = fields.Many2one(
         'account.tax',
-        string='Doorgefactureerde Verkoop BTW',
+        string='Verkoop BTW voor doorfacturatie',
         domain=[('type_tax_use', '=', 'sale')], # Zorg dat het een verkoop BTW code is
         help="De verkoop BTW code die gebruikt moet worden bij doorfacturatie van aankoopfacturen die deze BTW code gebruiken."
     )

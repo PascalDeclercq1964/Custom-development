@@ -6,7 +6,7 @@ class AccountAccount(models.Model):
     # Veld om de Verkooprekening voor doorfacturatie direct vast te leggen
     x_resell_sale_account_id = fields.Many2one(
         'account.account',
-        string='Doorgefactureerde Verkooprekening',
+        string='Verkooprekening voor doorfacturatie',
         domain=[('internal_group', '=', 'income')], # Zorg dat het een verkooprekening is
         help="De verkooprekening die gebruikt moet worden bij doorfacturatie van aankoopfacturen die deze rekening gebruiken."
     )
