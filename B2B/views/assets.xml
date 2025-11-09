@@ -1,0 +1,8 @@
+<odoo>
+    <record id="b2b_sale_assets" model="ir.asset">
+        <field name="name">B2B Sale Assets</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">/mijn_b2b_aanpassingen/static/src/js/b2b_sale_qty.js</field>
+        <field name="target">website_sale.assets_frontend</field> 
+    </record>
+</odoo>
