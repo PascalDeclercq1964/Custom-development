@@ -7,7 +7,7 @@
     </record>
     <template id="b2b_display_min_qty" inherit_id="website_sale.product_price" name="B2B Display Minimum Order Qty">
         
-        <xpath expr="//div[@class='product_price']" position="after">
+        <xpath expr="//div[@class='product_price']/h3[1]" position="after">
             
             <t t-if="website.id == 2">
                 
@@ -16,7 +16,7 @@
                 <t t-if="order_step > 1">
                     <div class="mt-2 mb-2">
                         <span style="font-weight: bold;">
-                            Minimale Bestelhoeveelheid:
+                            Bestelhoeveelheid:
                         </span>
                         <span t-esc="order_step" class="text-primary"/> 
                         <span class="text-muted"> (veelvoud van <t t-esc="order_step"/>)</span>
