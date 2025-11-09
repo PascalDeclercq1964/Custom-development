@@ -7,7 +7,7 @@
     </record>
     <template id="b2b_display_min_qty" inherit_id="website_sale.product_price" name="B2B Display Minimum Order Qty">
         
-        <xpath expr="//div[@class='product_price']" position="after">
+        <xpath expr="//div[@class='oe_structure']" position="after">
             
             <t t-if="website.id == 2">
                 
