@@ -13,8 +13,7 @@
     ],
     'data': [
         # Laad de XML-bestanden die de QWeb overrides bevatten
-        'views/templates.xml',  # Voor de minimale hoeveelheid logica (QWeb)
-        'views/b2b_price_hide.xml', # Voor de prijsverberging (QWeb)
+        'views/templates.xml'
     ],
     'assets': {
         # Registreer het JavaScript bestand dat de knoppen-logica overschrijft
