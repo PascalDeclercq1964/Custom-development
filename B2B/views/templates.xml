@@ -11,8 +11,8 @@
             
             <t t-if="website.id == 2">
                 
-                <t t-set="order_step" t-value="product.x_studio_order_quantity or product.product_tmpl_id.x_studio_order_quantity or 1"/>
-
+                <t t-set="order_step" t-value="combination_info.get('min_quantity') or 1"/>
+                
                 <t t-if="order_step > 1">
                     <div class="mt-2 mb-2">
                         <span style="font-weight: bold;">

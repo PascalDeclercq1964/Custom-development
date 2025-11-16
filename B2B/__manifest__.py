@@ -8,8 +8,10 @@
     'license': 'LGPL-3',
     'depends': [
         'base', 
+        'website',
         'website_sale', # Essentieel, omdat we de templates van deze module overschrijven
         'sale', 
+        'product'
     ],
     'data': [
         # Laad de XML-bestanden die de QWeb overrides bevatten
