@@ -26,4 +26,74 @@
             </t>
         </xpath>
     </template>
+
+    <template id="b2b_product_price_detail_hiding" inherit_id="website_sale.product_price" name="B2B Prijs Detailpagina Verbergen (ID 2)">
+        
+        <xpath expr="//div[hasclass('oe_price_h4')]" position="replace">
+            
+            <t t-if="website.id == 2">
+                <t t-set="show_price" t-value="env['res.users'].user_can_see_b2b_price()"/>
+                
+                <t t-if="show_price">
+                    <div class="oe_price_h4">
+                        <span t-if="combination" class="oe_price" style="white-space: nowrap;">
+                            <del class="text-danger me-2" style="white-space: nowrap;" t-field="combination.list_price" t-options='{"widget": "monetary", "display_currency": website.currency_id}' t-if="combination and combination.has_discount"/>
+                            <span t-field="combination.price" t-options='{"widget": "monetary", "display_currency": website.currency_id}' class="oe_currency_value"/>
+                        </span>
+                        <span t-else="" class="oe_price" style="white-space: nowrap;">
+                            <del class="text-danger me-2" style="white-space: nowrap;" t-field="product.list_price" t-options='{"widget": "monetary", "display_currency": website.currency_id}' t-if="product.has_discount and website.env.user.sudo().get_current_pricelist().id == product.currency_id.id"/>
+                            <span t-field="product.price" t-options='{"widget": "monetary", "display_currency": website.currency_id}' class="oe_currency_value"/>
+                        </span>
+                    </div>
+                </t>
+                <t t-else="">
+                    <div class="oe_price_h4">
+                        <span class="text-info">
+                            Prijs enkel zichtbaar voor bevoegde B2B-klanten. 
+                            <t t-if="user.has_group('base.group_public')">
+                                Gelieve in te loggen om uw prijzen te zien.
+                            </t>
+                        </span>
+                    </div>
+                </t>
+            </t>
+            <t t-else="">
+                <div class="oe_price_h4">
+                    <span t-if="combination" class="oe_price" style="white-space: nowrap;">
+                        <del class="text-danger me-2" style="white-space: nowrap;" t-field="combination.list_price" t-options='{"widget": "monetary", "display_currency": website.currency_id}' t-if="combination and combination.has_discount"/>
+                        <span t-field="combination.price" t-options='{"widget": "monetary", "display_currency": website.currency_id}' class="oe_currency_value"/>
+                    </span>
+                    <span t-else="" class="oe_price" style="white-space: nowrap;">
+                        <del class="text-danger me-2" style="white-space: nowrap;" t-field="product.list_price" t-options='{"widget": "monetary", "display_currency": website.currency_id}' t-if="product.has_discount and website.env.user.sudo().get_current_pricelist().id == product.currency_id.id"/>
+                        <span t-field="product.price" t-options='{"widget": "monetary", "display_currency": website.currency_id}' class="oe_currency_value"/>
+                    </span>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="b2b_catalog_price_hiding" inherit_id="website_sale.products_item" name="B2B Prijs Catalogus Verbergen (ID 2)">
+        
+        <xpath expr="//div[hasclass('product_price')]" position="replace">
+            
+            <t t-if="website.id == 2">
+                <t t-set="show_price" t-value="env['res.users'].user_can_see_b2b_price()"/>
+            
+                <div t-if="show_price" class="product_price" itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">
+                    <del class="product_price_extra text-danger me-2" t-if="product.list_price != product.price and website_sale_price_list" style="white-space: nowrap;" t-field="product.list_price" t-options='{"widget": "monetary", "display_currency": website.currency_id}'/>
+                    <span t-field="product.price" style="white-space: nowrap;" t-options='{"widget": "monetary", "display_currency": website.currency_id}' class="oe_currency_value"/>
+                </div>
+                
+                <div t-else="" class="product_price text-center">
+                    <span class="text-info small">Prijs op aanvraag.</span>
+                </div>
+            </t>
+            <t t-else="">
+                <div class="product_price" itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">
+                    <del class="product_price_extra text-danger me-2" t-if="product.list_price != product.price and website_sale_price_list" style="white-space: nowrap;" t-field="product.list_price" t-options='{"widget": "monetary", "display_currency": website.currency_id}'/>
+                    <span t-field="product.price" style="white-space: nowrap;" t-options='{"widget": "monetary", "display_currency": website.currency_id}' class="oe_currency_value"/>
+                </div>
+            </t>
+        </xpath>
+    </template>
 </odoo>

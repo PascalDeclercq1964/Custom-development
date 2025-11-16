@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_partner_form_b2b_extension" model="ir.ui.view">
+        <field name="name">res.partner.form.b2b.extension</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="property_supplier_payment_term_id" position="after">
+                <field name="x_is_b2b_blocked"/>
+            </field>
+        </field>
+    </record>
+</odoo>
