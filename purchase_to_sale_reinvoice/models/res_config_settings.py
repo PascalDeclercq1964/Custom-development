@@ -1,7 +1,6 @@
 from odoo import fields, models
 
-class ResConfigSettings(models.TransientModel):
-    _inherit = 'res.config.settings'
+
 
     # Veld om de vaste klant op te slaan
     resell_partner_id = fields.Many2one(
