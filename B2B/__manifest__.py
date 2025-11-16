@@ -18,6 +18,7 @@
         #'views/templates.xml',
         'views/product_pricelist_views.xml',
         'views/res_partner_views.xml',
+        'views/b2b_website_sale_templates.xml',
     ],
     'assets': {
         # Registreer het JavaScript bestand dat de knoppen-logica overschrijft
