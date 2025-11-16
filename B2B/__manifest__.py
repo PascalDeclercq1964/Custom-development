@@ -15,7 +15,8 @@
     ],
     'data': [
         # Laad de XML-bestanden die de QWeb overrides bevatten
-        'views/templates.xml'
+        #'views/templates.xml',
+        'views/product_pricelist_views.xml'
     ],
     'assets': {
         # Registreer het JavaScript bestand dat de knoppen-logica overschrijft
