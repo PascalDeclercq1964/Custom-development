@@ -2,7 +2,7 @@
     <record id="pricelist_view_form_b2b_extension" model="ir.ui.view">
         <field name="name">product.pricelist.form.b2b.extension</field>
         <field name="model">product.pricelist</field>
-        <field name="inherit_id" ref="product.view_product_pricelist_form"/>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
         <field name="arch" type="xml">
             <field name="currency_id" position="after">
                 <field name="x_is_b2b_pricelist"/>
