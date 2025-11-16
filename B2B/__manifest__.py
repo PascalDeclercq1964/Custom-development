@@ -16,13 +16,13 @@
     'data': [
         # Laad de XML-bestanden die de QWeb overrides bevatten
         #'views/templates.xml',
-        'views/product_pricelist_views.xml'
+        #'views/product_pricelist_views.xml'
     ],
     'assets': {
         # Registreer het JavaScript bestand dat de knoppen-logica overschrijft
         'web.assets_frontend': [
             # Zorg ervoor dat dit na de originele website_sale.js laadt
-            'mijn_b2b_aanpassingen/static/src/js/b2b_sale_qty.js',
+            #'mijn_b2b_aanpassingen/static/src/js/b2b_sale_qty.js',
         ],
     },
     'installable': True,
