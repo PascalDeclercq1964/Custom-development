@@ -26,10 +26,7 @@
                 <t t-else="">
                     <div class="product_price mt-2 mb-3">
                         <h3 class="text-info">
-                            Prijs enkel zichtbaar voor bevoegde B2B-klanten. 
-                            <t t-if="user.has_group('base.group_public')">
-                                Gelieve in te loggen om uw prijzen te zien.
-                            </t>
+                            Prijs enkel zichtbaar voor B2B-klanten. 
                         </h3>
                     </div>
                 </t>
