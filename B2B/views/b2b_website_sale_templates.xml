@@ -1,7 +1,7 @@
 <odoo>
     <template id="b2b_product_price_detail_hiding" inherit_id="website_sale.product_price" name="B2B Prijs Detailpagina Verbergen (ID 2)">
         
-        <xpath expr="//div[hasclass('product_price')]" position="replace">
+        <xpath expr="//div[@itemprop='offers']" position="replace">
             <p>Kakkewiet</p>
             <t t-if="website.id == 2">
                 <t t-set="show_price" t-value="env['res.users'].user_can_see_b2b_price()"/>
