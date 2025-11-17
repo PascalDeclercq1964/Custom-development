@@ -12,20 +12,17 @@
                             <span class="oe_price" style="white-space: nowrap;" t-out="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
                             <span itemprop="price" style="display:none;" t-out="combination_info['price']"/>
                             <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name"/>
-                            </h3>
+                        </h3>
                         <h3 class="css_non_editable_mode_hidden decimal_precision" t-att-data-precision="str(website.currency_id.decimal_places)">
                             <span t-field="product.list_price" t-options="{'widget': 'monetary', 'display_currency': product.currency_id}"/>
                             <t t-if="is_view_active('website_sale.tax_indication')" t-call="website_sale.tax_indication"/>
                             <del t-if="combination_info['compare_list_price'] and (combination_info['compare_list_price'] &gt; combination_info['price'])">
                                 <bdi dir="inherit">
-                                    </bdi>
+                                </bdi>
                             </del>
                         </h3>
                     </div>
-                    <div id="product_unavailable" t-attf-class="{{'d-flex' if combination_info['prevent_zero_price_sale'] else 'd-none'}}">
-                        <h3 class="fst-italic" t-field="website.prevent_zero_price_sale_text"/>
-                    </div>
-                </t>
+                    </t>
                 <t t-else="">
                     <div class="product_price mt-2 mb-3">
                         <h3 class="text-info">
@@ -34,9 +31,6 @@
                                 Gelieve in te loggen om uw prijzen te zien.
                             </t>
                         </h3>
-                    </div>
-                    <div id="product_unavailable" t-attf-class="{{'d-flex' if combination_info['prevent_zero_price_sale'] else 'd-none'}}">
-                        <h3 class="fst-italic" t-field="website.prevent_zero_price_sale_text"/>
                     </div>
                 </t>
             </t>
@@ -56,11 +50,18 @@
                         </del>
                     </h3>
                 </div>
+            </t>
+
+        </xpath>
+        
+        <xpath expr="//div[@id='product_unavailable']" position="replace">
+            <t t-if="website.id == 2 and not env['res.users'].user_can_see_b2b_price()">
+                 </t>
+            <t t-else="">
                 <div id="product_unavailable" t-attf-class="{{'d-flex' if combination_info['prevent_zero_price_sale'] else 'd-none'}}">
                     <h3 class="fst-italic" t-field="website.prevent_zero_price_sale_text"/>
                 </div>
             </t>
         </xpath>
     </template>
-    
 </odoo>
