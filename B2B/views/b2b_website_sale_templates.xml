@@ -3,7 +3,6 @@
         
         <xpath expr="//div[@itemprop='offers']" position="replace">
             <p>Kakkewiet</p>
-            <span t-field="env['res.users'].user_can_see_b2b_price()">Test</span>
             <t t-if="website.id == 2">
                 <t t-set="show_price" t-value="env['res.users'].user_can_see_b2b_price()"/>
                 
