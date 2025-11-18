@@ -1,33 +1,45 @@
+
 # models/res_users.py
 from odoo import models, api
+import logging
+_logger = logging.getLogger(__name__)
 
 class ResUsers(models.Model):
     _inherit = 'res.users'
 
     @api.model
     def user_can_see_b2b_price(self):
-        """ Controleert of de huidige gebruiker de prijs mag zien op basis van B2B-criteria. """
         user = self.env.user
-        
-        # 1. Anonieme gebruiker mag GEEN prijs zien
-        # Een publieke gebruiker heeft de 'base.group_public' groep, maar niet 'base.group_portal'
-        if user.has_group('base.group_public') and not user.has_group('base.group_portal'):
-             return False 
-        
-        # Partner van de ingelogde gebruiker
         partner = user.partner_id
         
-        # 2. Check of de klant B2B geblokkeerd is
-        if partner.x_is_b2b_blocked:
+        # 1. Check: Anonieme gebruiker
+        # Een publieke gebruiker is in de 'base.group_public' maar niet in 'base.group_portal'
+        is_public_user = user.has_group('base.group_public') and not user.has_group('base.group_portal')
+        _logger.info("B2B Debug: Huidige gebruiker: %s (ID: %s)", user.name, user.id)
+        _logger.info("B2B Debug: Is Publieke Gebruiker (Anoniem): %s", is_public_user)
+
+        if is_public_user:
+             return False 
+        
+        # 2. Check: B2B Geblokkeerd op Contact
+        _logger.info("B2B Debug: Partner B2B geblokkeerd: %s", partner.x_is_b2b_blocked)
+        if partner.is_b2b_blocked:
             return False 
         
-        # 3. Check de actieve prijslijst
-        # We halen de actieve prijslijst op die de website momenteel gebruikt
-        pricelist = self.env['product.pricelist'].browse(self.env.context.get('pricelist'))
+        # 3. Check: Prijslijst is B2B
+        # Belangrijk: De prijslijst is de ACTIEVE prijslijst in de context
+        pricelist_id = self.env.context.get('pricelist')
+        pricelist = self.env['product.pricelist'].browse(pricelist_id) if pricelist_id else self.env['product.pricelist']
         
-        # 4. Check of de actieve prijslijst is gemarkeerd als B2B
-        if pricelist and pricelist.x_is_b2b_pricelist:
+        _logger.info("B2B Debug: Actieve Prijslijst ID: %s", pricelist.id)
+        
+        # Zorg dat 'is_b2b_pricelist' is gedefinieerd in product.pricelist (uit Stap 1)
+        is_b2b_pricelist = pricelist and pricelist.x_is_b2b_pricelist
+        _logger.info("B2B Debug: Prijslijst gemarkeerd als B2B: %s", is_b2b_pricelist)
+
+        if is_b2b_pricelist:
+            _logger.info("B2B Debug: CONCLUSIE: TOON PRIJS (True)")
             return True
         
-        # Voldoet niet aan alle criteria (ingelogd, niet geblokkeerd, én B2B-prijslijst)
+        _logger.info("B2B Debug: CONCLUSIE: VERBERG PRIJS (False)")
         return False
