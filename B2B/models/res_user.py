@@ -28,9 +28,7 @@ class ResUsers(models.Model):
         
         # 3. Check: Prijslijst is B2B
         # Belangrijk: De prijslijst is de ACTIEVE prijslijst in de context
-        pricelist_id = self.env.context.get('pricelist')
-        pricelist = self.env['product.pricelist'].browse(pricelist_id) if pricelist_id else self.env['product.pricelist']
-        
+        pricelist = partner.property_product_pricelist
         _logger.info("B2B Debug: Actieve Prijslijst ID: %s", pricelist.id)
         
         # Zorg dat 'is_b2b_pricelist' is gedefinieerd in product.pricelist (uit Stap 1)
