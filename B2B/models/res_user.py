@@ -23,7 +23,7 @@ class ResUsers(models.Model):
         
         # 2. Check: B2B Geblokkeerd op Contact
         _logger.info("B2B Debug: Partner B2B geblokkeerd: %s", partner.x_is_b2b_blocked)
-        if partner.is_b2b_blocked:
+        if partner.x_is_b2b_blocked:
             return False 
         
         # 3. Check: Prijslijst is B2B
