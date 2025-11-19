@@ -24,6 +24,8 @@ def _set_b2b_pricelist_context(self):
         # We gebruiken de partner_record met sudo rechten, zodat de berekening slaagt.
         pricelist = partner_record.with_context(pricelist=False).property_product_pricelist
         
+
+        _logger.info("B2B CONTEXT: Probeer Pricelist ID %s van partner %s toe te passen op request context.", pricelist.id, partner_record.name)
         # 4. Controleer of de prijslijst B2B is
         if pricelist and pricelist.x_is_b2b_pricelist:
             
